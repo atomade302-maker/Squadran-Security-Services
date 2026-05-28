@@ -2527,6 +2527,15 @@ section {
         height: 220px;
     }
 
+    /* ========= CLIENTS ========= */
+    .featured-clients-row { gap: 20px; }
+    .main-client-img { 
+        width: 120px; 
+        height: 120px; 
+        border-radius: 25px; 
+        clip-path: inset(2px round 25px); 
+    }
+
     /* ========= CONTACT ========= */
     .contact-grid { grid-template-columns: 1fr; gap: 32px; }
     .contact-form-panel { padding: 28px 20px; }
@@ -2592,6 +2601,16 @@ section {
     .team-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
     .team-img-container,
     .team-card.featured .team-img-container { height: 180px; }
+
+    /* Clients */
+    .featured-clients-row { gap: 15px; }
+    .main-client-img { 
+        width: 90px; 
+        height: 90px; 
+        border-radius: 20px; 
+        clip-path: inset(1px round 20px); 
+    }
+    .featured-client-subtext { font-size: 0.75rem; }
 
     /* Contact */
     .contact-form-panel { padding: 22px 16px; }
