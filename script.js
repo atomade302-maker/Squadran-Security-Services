@@ -357,37 +357,8 @@ function init() {
     const quoteForm = document.getElementById('quoteForm');
     const formAlert = document.getElementById('formAlert');
 
-    if (quoteForm) {
-        quoteForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            // Gather values
-            const name = document.getElementById('name').value.trim();
-            const phone = document.getElementById('phone').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const service = document.getElementById('service').value;
-            const message = document.getElementById('message').value.trim();
-
-            if (!name || !phone || !service || !message) {
-                showFormAlert('Please fill in all required fields.', 'error');
-                return;
-            }
-
-            // Disable submit button during processing
-            const submitBtn = quoteForm.querySelector('button[type="submit"]');
-            const originalBtnHTML = submitBtn.innerHTML;
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = 'Sending Quote Request... <span class="spinner" style="width: 14px; height: 14px; display: inline-block; vertical-align: middle; margin-left: 6px; border-width: 2px;"></span>';
-
-            // Simulate server network dispatch
-            setTimeout(() => {
-                showFormAlert(`Thank you, ${name}! Your security quote request has been received. Our Mysore Operations Manager will call you shortly.`, 'success');
-                quoteForm.reset();
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = originalBtnHTML;
-            }, 1500);
-        });
-    }
+    // 7. Form Submission is handled natively by HTML5 and FormSubmit.co
+    // Removed AJAX override to prevent local browser CORS blocking issues.
 
     function showFormAlert(message, type) {
         if (!formAlert) return;
@@ -417,7 +388,7 @@ function init() {
 
     // Image mapping for branches
     const branchImages = {
-        karnataka: 'take/office.png',
+        karnataka: 'office.png',
         ap: 'WhatsApp Image 2026-05-27 at 11.05.10 AM.jpeg',
         telangana: 'WhatsApp Image 2026-05-27 at 11.13.47 AM.jpeg',
         odisha: 'WhatsApp Image 2026-05-27 at 11.13.44 AM (1).jpeg'
@@ -449,7 +420,7 @@ function init() {
                 officeImg.style.opacity = '0.3';
 
                 // Change source
-                officeImg.src = branchImages[branch] || 'take/office.png';
+                officeImg.src = branchImages[branch] || 'office.png';
 
                 // Update active hotspots wrapper class for filtering
                 if (imgWrapper) {
