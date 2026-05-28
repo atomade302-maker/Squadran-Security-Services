@@ -1430,9 +1430,9 @@ section {
 }
 
 .main-client-logo {
-    margin-top: 60px;
-    padding-top: 50px;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    margin-bottom: 50px;
+    padding-bottom: 50px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -1448,12 +1448,13 @@ section {
     letter-spacing: 2px;
 }
 .main-client-img {
-    max-width: 100%;
-    height: auto;
-    width: 280px;
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    background-color: var(--color-panel-bg);
     /* Aggressively crop out white edges and corners */
-    border-radius: 60px;
-    clip-path: inset(3px round 60px);
+    border-radius: 35px;
+    clip-path: inset(2px round 35px);
     overflow: hidden;
     filter: drop-shadow(0 10px 25px rgba(0,0,0,0.5));
     transition: var(--transition-normal);
@@ -1461,6 +1462,33 @@ section {
 .main-client-img:hover {
     transform: scale(1.05);
     filter: drop-shadow(0 15px 35px rgba(197, 168, 128, 0.2));
+}
+.main-client-img.no-crop {
+    border-radius: 0;
+    clip-path: none;
+    background-color: transparent;
+}
+
+.featured-clients-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-top: 20px;
+}
+.featured-client-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+.featured-client-subtext {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-align: center;
+    max-width: 280px;
 }
 
 /* 6. Team Section */
@@ -2426,7 +2454,7 @@ section {
     }
     .stat-number { font-size: 2.2rem; }
 
-    /* Guard showcase — scale down, hide feature labels */
+    /* Guard showcase — scale down, KEEP feature labels */
     .hero-visual { order: -1; }
     .guard-showcase {
         width: 260px;
@@ -2434,7 +2462,13 @@ section {
         margin: 0 auto;
     }
     .guard-spin-wrapper { width: 200px; }
-    .feature-label { display: none !important; }
+    .feature-label {
+        display: flex !important;
+        transform: scale(0.65);
+        z-index: 20;
+    }
+    .feature-label.left { left: -25px; transform-origin: right center; }
+    .feature-label.right { right: -25px; transform-origin: left center; }
     .guard-frame { inset: 16px; }
 
     /* ========= ABOUT ========= */
@@ -2535,6 +2569,9 @@ section {
     .hero-lead { font-size: 0.9rem; }
     .guard-showcase { width: 220px; height: 290px; }
     .guard-spin-wrapper { width: 170px; }
+    .feature-label { transform: scale(0.55); }
+    .feature-label.left { left: -35px; }
+    .feature-label.right { right: -35px; }
 
     /* Stats — 3 in a row even on small screens */
     .hero-stats { gap: 16px 20px; }
